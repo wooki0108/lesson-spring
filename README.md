@@ -3,11 +3,10 @@
 ### 1. DI 설명해보세요
 
 ~~~
- git test
+ git test test
  
 ~~~
 
----
 
 ### 2. DI 3가지 방식을 설명하고 만들어보세요(answer 패키지)
 
