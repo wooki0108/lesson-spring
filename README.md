@@ -3,7 +3,7 @@
 ### 1. DI 설명해보세요
 
 ~~~
- git test test test
+ git error
  
 ~~~
 
