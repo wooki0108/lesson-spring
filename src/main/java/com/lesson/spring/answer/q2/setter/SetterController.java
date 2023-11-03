@@ -1,4 +1,4 @@
-package com.lesson.spring.answer.setter;
+package com.lesson.spring.answer.q2.setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;

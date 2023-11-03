@@ -1,4 +1,4 @@
-package com.lesson.spring.answer.constructor;
+package com.lesson.spring.answer.q2.constructor;
 
 import org.springframework.stereotype.Service;
 

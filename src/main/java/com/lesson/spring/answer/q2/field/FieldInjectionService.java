@@ -1,4 +1,4 @@
-package com.lesson.spring.answer.field;
+package com.lesson.spring.answer.q2.field;
 
 import org.springframework.stereotype.Service;
 
