@@ -58,7 +58,7 @@
 ### 7. Spring MVC에 대해 설명해보세요
 
 ~~~
- 
+ MVC는 Model, View, Controller의 약자이며, 각 레이어간 기능을 구분하는데 중점을 둔 디자인 패턴
 ~~~
 
 --- 
