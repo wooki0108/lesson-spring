@@ -66,6 +66,12 @@
 ### 8. Servlet Filter 와 Spring Interceptor 차이를 설명해보세요 (옵션)
 
 ~~~
+Servlet Filter
+ Dispatcher Servlet에 요청이 전달되기 전 / 후에 url 패턴에 맞는 모든 요청에 대해 부가 작업을 처리할 수 있는 기능을 제공
+ 스프링 컨테이너가 아닌 톰캣과 같은 웹 컨테이너에 의해 관리
 
+Spring Interceptor 
+ Dispatcher Servlet이 Controller를 호출하기 전 / 후에 인터셉터가 끼어들어 요청과 응답을 참조하거나 가공할 수 있는 기능을 제공
+ 웹 컨테이너에서 동작하는 필터와 달리 인터셉터는 스프링 컨텍스트에서 동작
 ~~~
 
