@@ -3,7 +3,7 @@
 ### 1. DI 설명해보세요
 
 ~~~
- branch step1-a test 뭔가 상당히 문제가 많다 !
+ Dependency Injection으로 의존 관계를 외부에서 결정하는 것
 ~~~
 
 ---
