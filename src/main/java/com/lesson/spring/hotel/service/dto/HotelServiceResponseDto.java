@@ -34,5 +34,6 @@ public class HotelServiceResponseDto {
                 hotel.getEndDate()
         );
     }
+    //branch step2
 
 }
