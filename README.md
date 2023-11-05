@@ -3,7 +3,7 @@
 ### 1. REST API 의 특징에 대해 설명해보세요
 
 ~~~
- 
+ test rest api 특징 from step 2
 ~~~
 
 ---
