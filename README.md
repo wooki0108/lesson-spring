@@ -3,7 +3,7 @@
 ### 1. DI 설명해보세요
 
 ~~~
- 왜 clone 한 파일에서는 커밋이 되는거지? 
+ step1 branch test
  
 ~~~
 
