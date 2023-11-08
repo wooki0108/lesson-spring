@@ -3,7 +3,9 @@
 ### 1. REST API 의 특징에 대해 설명해보세요
 
 ~~~
- test rest api 특징 from step 2
+ 1. Server-Client 구조
+ 2. 무상태성 - client의 context를 server에 저장하지 않는다.
+ 3. Cacheable - 캐시사용이 가능해서 응답 시간을 빠르게 할 수 있다.
 ~~~
 
 ---
