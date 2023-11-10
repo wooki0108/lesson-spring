@@ -6,5 +6,5 @@ import java.util.List;
 public interface MotelDao {
 
     List<MotelResponse> motelList();
-    void saveMotel(int price, String name);
+    void saveMotel(long price, String name);
 }

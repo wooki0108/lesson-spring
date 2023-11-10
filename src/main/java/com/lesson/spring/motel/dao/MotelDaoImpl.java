@@ -19,13 +19,13 @@ public class MotelDaoImpl implements MotelDao {
         String sql = "select price, name from motel";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             String name = rs.getString("name");
-            int price = rs.getInt("price");
+            long price = rs.getInt("price");
             return new MotelResponse(name, price);
         });
     }
 
     @Override
-    public void saveMotel(int price, String name) {
+    public void saveMotel(long price, String name) {
         String sql = "Insert into motel (price, name)  values(?, ?)";
         jdbcTemplate.update(sql, price, name);
     }

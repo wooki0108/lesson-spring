@@ -6,9 +6,9 @@ import lombok.Getter;
 public class MotelCreateRequest {
 
     private final String name;
-    private final int price;
+    private final long price;
 
-    public MotelCreateRequest(String name, int price) {
+    public MotelCreateRequest(String name, long price) {
         this.name = name;
         this.price = price;
     }

@@ -9,6 +9,6 @@ public class MotelResponse {
 
 //    private Long id;
     private final String name;
-    private final int price;
+    private final long price;
 
 }
