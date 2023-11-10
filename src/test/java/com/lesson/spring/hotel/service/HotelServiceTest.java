@@ -31,10 +31,13 @@ class HotelServiceTest {
     void getHotels() {
         //given
         List<Hotel> testHotels = List.of(
-                Hotel.builder().owner("동욱").startDate(LocalDate.of(2022,11,10)).endDate(LocalDate.of(2022,11,10)).build(),
-                Hotel.builder().owner("욱동").startDate(LocalDate.of(2022,11,10)).endDate(LocalDate.of(2022,11,10)).build(),
-                Hotel.builder().owner("동욱").startDate(LocalDate.of(2022,11,10)).endDate(LocalDate.of(2022,11,10)).build());
-        ApiRequestDto apiRequestDto = new ApiRequestDto("동욱", LocalDate.of(2022,11,10));
+                Hotel.builder().owner("동욱").startDate(LocalDate.of(2022, 11, 10))
+                        .endDate(LocalDate.of(2022, 11, 10)).build(),
+                Hotel.builder().owner("욱동").startDate(LocalDate.of(2022, 11, 10))
+                        .endDate(LocalDate.of(2022, 11, 10)).build(),
+                Hotel.builder().owner("동욱").startDate(LocalDate.of(2022, 11, 10))
+                        .endDate(LocalDate.of(2022, 11, 10)).build());
+        ApiRequestDto apiRequestDto = new ApiRequestDto("동욱", LocalDate.of(2022, 11, 10));
         when(hotelDao.getHotels()).thenReturn(testHotels);
 
         //when

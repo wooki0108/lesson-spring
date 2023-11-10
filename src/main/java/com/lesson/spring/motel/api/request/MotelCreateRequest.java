@@ -1,4 +1,4 @@
-package com.lesson.spring.motel.api.dto;
+package com.lesson.spring.motel.api.request;
 
 import lombok.Getter;
 

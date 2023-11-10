@@ -1,6 +1,6 @@
 package com.lesson.spring.motel.dao;
 
-import com.lesson.spring.motel.api.dto.MotelResponse;
+import com.lesson.spring.motel.api.response.MotelResponse;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

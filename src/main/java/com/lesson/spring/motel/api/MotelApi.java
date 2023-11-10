@@ -1,7 +1,7 @@
 package com.lesson.spring.motel.api;
 
-import com.lesson.spring.motel.api.dto.MotelCreateRequest;
-import com.lesson.spring.motel.api.dto.MotelResponse;
+import com.lesson.spring.motel.api.request.MotelCreateRequest;
+import com.lesson.spring.motel.api.response.MotelResponse;
 import com.lesson.spring.motel.service.MotelService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;

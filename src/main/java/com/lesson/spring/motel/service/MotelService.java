@@ -1,9 +1,8 @@
 package com.lesson.spring.motel.service;
 
-import com.lesson.spring.motel.api.dto.MotelCreateRequest;
-import com.lesson.spring.motel.api.dto.MotelResponse;
+import com.lesson.spring.motel.api.request.MotelCreateRequest;
+import com.lesson.spring.motel.api.response.MotelResponse;
 import com.lesson.spring.motel.dao.MotelDao;
-import com.lesson.spring.motel.domain.Motel;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,7 @@ public class MotelService {
         return motelDao.motelList();
     }
 
-    public void saveMotel(MotelCreateRequest motelCreateRequest) {
-        motelDao.saveMotel(motelCreateRequest.getPrice(), motelCreateRequest.getName());
+    public void saveMotel(MotelCreateRequest request) {
+        motelDao.saveMotel(request.getPrice(), request.getName());
     }
 }
