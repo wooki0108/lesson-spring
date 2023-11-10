@@ -23,7 +23,21 @@
 ### 3. @RequestBody vs @ModelAttribute 설명해보세요
 
 ~~~
- 
+ 공통점
+    - 클라이언트 측에서 보낸 데이터를 Java 코드에서 사용할 수 있는 오브젝트로 만들어준다.
+ @RequestBody
+    - 클라이언트가 보내는 HTTP 요청 본문(JSON 및 XML 등)을 Java 오브젝트로변환하는 것
+    - HttpMessageConverter를 통해 타입에 맞는 객체로 변환
+    - 생성자와 Setter가 없어도 가능
+        - MappingJackson2HttpMessageConverter를 사용함
+        - 직렬화를 위해 기본 생성자는 필수
+        - 데이터 바인딩을 위한 필드명을 알아내기 위해 getter나 setter 중 1가지는 정의
+ @ModelAttribute
+    - 클라이언트가 보내는 HTTP 파라미터들을 특정 Java Object에 바인딩(맵핑)하는 것
+    - 객체의 필드에 접근해 데이터를 바인딩할 수 있는 생성자 혹은 setter 메서드가 필요하다.
+    - Query String 및 Form 형식이 아닌 데이터는 처리할 수 없다.
+    
+    참고 : https://tecoble.techcourse.co.kr/post/2021-05-11-requestbody-modelattribute/
 ~~~
 
 ---
