@@ -37,20 +37,26 @@
     - 객체의 필드에 접근해 데이터를 바인딩할 수 있는 생성자 혹은 setter 메서드가 필요하다.
     - Query String 및 Form 형식이 아닌 데이터는 처리할 수 없다.
     
-    참고 : https://tecoble.techcourse.co.kr/post/2021-05-11-requestbody-modelattribute/
+ 참고 : https://tecoble.techcourse.co.kr/post/2021-05-11-requestbody-modelattribute/
 ~~~
 
 ---
 
-### 4. @Controller vs @RestController 차이와 @RestController 사용했을때 Spring MVC 설정의 변화를 설명해보세요 
+### 4. @Controller vs @RestController 차이와 @RestController 사용했을때 Spring MVC 설정의 변화를 설명해보세요
 
 ~~~
- 
+ 차이점
+    - HTTP Response Body 생성되는 방식
+    - @Controller는 뷰를 반환하기 위한 목적이고, @RestController는 데이터를 반환하기 위한 목적
+    
+ @RestController 사용 시 Spring MVC 설정 변화
+    - @RestController 사용 시 객체를 반환하기 때문에 HttpStatus를 설정할 수 없음 → 객체를 상황에 맞는 ResponseEntity로 감싸서 반환해야 함
+ 참고 : https://mangkyu.tistory.com/49
 ~~~
 
 ---
 
-### 5. DAO vs Repository 차이를 설명해보세요 
+### 5. DAO vs Repository 차이를 설명해보세요
 
 ~~~
  
@@ -67,6 +73,7 @@
 ---
 
 ### 7. 쇼핑 사이트에서 Http Request Header를 하나하나 분석해 보세요
+
 ~~~
 
 ~~~
