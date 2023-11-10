@@ -5,8 +5,11 @@ import lombok.Getter;
 @Getter
 public class MotelCreateRequest {
 
-    private String name;
-    private int price;
+    private final String name;
+    private final int price;
 
-
+    public MotelCreateRequest(String name, int price) {
+        this.name = name;
+        this.price = price;
+    }
 }

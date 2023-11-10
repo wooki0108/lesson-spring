@@ -8,7 +8,7 @@ import lombok.Getter;
 public class MotelResponse {
 
 //    private Long id;
-    private String name;
-    private int price;
+    private final String name;
+    private final int price;
 
 }
