@@ -2,6 +2,7 @@ package com.lesson.spring.motel.api;
 
 import com.lesson.spring.motel.api.request.MotelCreateRequest;
 import com.lesson.spring.motel.api.response.MotelResponse;
+import com.lesson.spring.motel.api.response.MotelResponseV2;
 import com.lesson.spring.motel.service.MotelService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,17 +20,23 @@ public class MotelApi {
     }
 
     // 모텔 전체 조회
-    @GetMapping("/motels")
+    @GetMapping("/v1/motels")
     public List<MotelResponse> motelList() {
         return motelService.getMotelList();
     }
 
+//    @GetMapping("/v2/motels")
+//    public List<MotelResponseV2> motelListv2() {
+//        return motelService.getMotelList();
+//    }
+
     // 모텔 단건 조회
+
 
     // 모텔 특정 날짜 기준 조회
 
     // 모텔 등록
-    @PostMapping("/motel")
+    @PostMapping("/motels")
     public void saveMotel(@RequestBody MotelCreateRequest request) {
         motelService.saveMotel(request);
     }
