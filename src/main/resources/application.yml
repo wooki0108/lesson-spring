@@ -4,8 +4,13 @@ logging:
     root: info
 
 spring:
-  thymeleaf:
-    cache: false
-  devtools:
-    livereload:
-      enabled: true
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://localhost:3306/test
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: hr
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: create
