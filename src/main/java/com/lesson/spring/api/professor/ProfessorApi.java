@@ -1,6 +1,6 @@
 package com.lesson.spring.api.professor;
 
-import com.lesson.spring.api.professor.request.EnrollLessonRequest;
+import com.lesson.spring.api.professor.request.EnrollLessonRepoonse;
 import com.lesson.spring.entity.Lesson;
 import com.lesson.spring.service.LessonService;
 import com.lesson.spring.service.ProfessorService;
@@ -20,10 +20,20 @@ public class ProfessorApi {
 
     // 교수가 강의를 등록
     @PostMapping("/save")
-    public EnrollLessonRequest saveLesson(@RequestBody Lesson lesson) {
+    public EnrollLessonRepoonse saveLesson(@RequestBody Lesson lesson) {
         lessonService.save(lesson);
-        return new EnrollLessonRequest(lesson.getName());
+        return new EnrollLessonRepoonse(lesson.getName());
     }
+
+    //1. 교수 가입
+
+    //2. 교수 전체 조회
+
+    //3. 교수 이름으로 조회
+
+    //4. 교수 정보 수정
+
+    //5. 교수 은퇴
 
 
 }

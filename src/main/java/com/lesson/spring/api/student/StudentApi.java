@@ -15,12 +15,16 @@ public class StudentApi {
     private final StudentService studentService;
     private final LessonService lessonService;
 
-    // 학생 수강 신청
 
+    //1. 학생 등록
 
+    //2. 전체 학생 조회
 
+    //3. 학생 이름으로 조회
 
-    // 학생이 신청한 수강 과목 조회
+    //4. 학생 정보 수정
+
+    //5. 힉셍 자퇴
 
 
 
