@@ -4,6 +4,7 @@ import com.lesson.spring.api.professor.request.CreateProfessorRequest;
 import com.lesson.spring.api.professor.request.UpdateProfessorRequest;
 import com.lesson.spring.api.professor.response.ProfessorResponse;
 import com.lesson.spring.entity.Professor;
+import com.lesson.spring.exception.NotFoundProfessorException;
 import com.lesson.spring.repository.ProfessorRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -42,7 +43,7 @@ public class ProfessorService {
         List<Professor> findProfessorByName = professorRepository.findByName(name);
 
         if (findProfessorByName.isEmpty()) {
-            throw new IllegalArgumentException("존재하지 않은 교수님 입니다.");
+            throw new NotFoundProfessorException();
         }
 
         return findProfessorByName.stream().map(professor -> ProfessorResponse.builder()
@@ -56,6 +57,11 @@ public class ProfessorService {
     @Transactional
     public void update(Long professorId, UpdateProfessorRequest request) {
         Professor findProfessor = professorRepository.findById(professorId);
+
+        if (findProfessor == null) {
+            throw new NotFoundProfessorException();
+        }
+
         findProfessor.changeName(request.getName());
         professorRepository.save(findProfessor);
     }
@@ -64,6 +70,11 @@ public class ProfessorService {
     @Transactional
     public void delete(Long professorId) {
         Professor findProfessor = professorRepository.findById(professorId);
+
+        if (findProfessor == null) {
+            throw new NotFoundProfessorException();
+        }
+
         professorRepository.delete(findProfessor.getId());
     }
 }

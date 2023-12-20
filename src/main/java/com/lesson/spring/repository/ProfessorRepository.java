@@ -28,9 +28,7 @@ public class ProfessorRepository {
     }
 
     public Professor findById(Long professorId) {
-        return em.createQuery("select p from Professor p where p.id = :professorId", Professor.class)
-                .setParameter("professorId", professorId)
-                .getSingleResult();
+        return em.find(Professor.class, professorId);
     }
 
     public void delete(Long professorId) {
