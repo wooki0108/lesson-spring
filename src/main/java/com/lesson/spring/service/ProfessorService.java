@@ -55,20 +55,15 @@ public class ProfessorService {
 
     @Transactional
     public void update(Long professorId, UpdateProfessorRequest request) {
-        Professor findProfessor = findById(professorId);
+        Professor findProfessor = professorRepository.findById(professorId);
         findProfessor.changeName(request.getName());
         professorRepository.save(findProfessor);
     }
 
-    @Transactional
-    public Professor findById(Long professorId) {
-        Professor findProfessor = professorRepository.findById(professorId);
-        return findProfessor;
-    }
 
     @Transactional
     public void delete(Long professorId) {
-        Professor findProfessor = findById(professorId);
+        Professor findProfessor = professorRepository.findById(professorId);
         professorRepository.delete(findProfessor.getId());
     }
 }
