@@ -4,6 +4,7 @@ import com.lesson.spring.api.student.request.CreateStudentRequest;
 import com.lesson.spring.api.student.request.UpdateStudentRequest;
 import com.lesson.spring.api.student.response.StudentResponse;
 import com.lesson.spring.entity.Student;
+import com.lesson.spring.exception.NotFoundStudentException;
 import com.lesson.spring.repository.StudentRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +37,10 @@ public class StudentService {
 
         List<Student> findStudents = studentRepository.findByName(name);
 
+        if (findStudents.isEmpty()) {
+            throw new NotFoundStudentException();
+        }
+
         return findStudents.stream().map(student -> StudentResponse.builder()
                 .id(student.getId())
                 .name(student.getName())
@@ -46,6 +51,11 @@ public class StudentService {
     @Transactional
     public void update(Long studentId, UpdateStudentRequest request) {
         Student findStudent = studentRepository.findById(studentId);
+
+        if (findStudent == null) {
+            throw new NotFoundStudentException();
+        }
+
         findStudent.changeName(request.getName());
         studentRepository.save(findStudent);
     }
@@ -53,6 +63,10 @@ public class StudentService {
     @Transactional
     public void delete(Long studentId) {
         Student findStudent = studentRepository.findById(studentId);
+
+        if (findStudent == null) {
+            throw new NotFoundStudentException();
+        }
 
         studentRepository.delete(findStudent.getId());
 

@@ -28,9 +28,7 @@ public class StudentRepository {
     }
 
     public Student findById(Long studentId) {
-        return em.createQuery("select s from Student s where s.id = :studentId", Student.class)
-                .setParameter("studentId", studentId)
-                .getSingleResult();
+        return em.find(Student.class, studentId);
     }
 
     public void delete(Long findStudentId) {
