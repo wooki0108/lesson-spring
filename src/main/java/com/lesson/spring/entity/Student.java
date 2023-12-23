@@ -15,8 +15,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Builder
-@AllArgsConstructor
 @Getter
 public class Student {
 
@@ -31,5 +29,11 @@ public class Student {
 
     public void changeName(String name) {
         this.name = name;
+    }
+    @Builder
+    public Student(Long id, String name, List<StudentLesson> studentLesson) {
+        this.id = id;
+        this.name = name;
+        this.studentLesson = studentLesson;
     }
 }

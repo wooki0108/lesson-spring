@@ -87,8 +87,4 @@ public class ProfessorService {
         professorRepository.delete(findProfessor.getId());
     }
 
-    public Long findById(Long professorId) {
-        return professorRepository.findById(professorId).getId();
-
-    }
 }

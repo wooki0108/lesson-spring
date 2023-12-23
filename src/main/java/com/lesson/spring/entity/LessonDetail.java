@@ -7,7 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,10 +24,10 @@ public class LessonDetail {
 
     private String content;
 
-
-
-
-
-
-
+    @Builder
+    public LessonDetail(Long id, Week week, String content) {
+        this.id = id;
+        this.week = week;
+        this.content = content;
+    }
 }

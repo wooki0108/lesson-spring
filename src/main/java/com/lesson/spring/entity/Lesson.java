@@ -9,7 +9,8 @@ import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -34,6 +35,13 @@ public class Lesson {
     @OneToMany(mappedBy = "lesson")
     private List<StudentLesson> studentLessons = new ArrayList<>();
 
+    @Builder
+    public Lesson(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
-
+    public void changeName(String name) {
+        this.name = name;
+    }
 }
