@@ -7,6 +7,7 @@ import com.lesson.spring.entity.Professor;
 import com.lesson.spring.exception.NotFoundProfessorException;
 import com.lesson.spring.repository.ProfessorRepository;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,11 +32,19 @@ public class ProfessorService {
 
         List<Professor> professors = professorRepository.findAll();
 
-        return professors.stream().map((professor) -> ProfessorResponse.builder()
-                .id(professor.getId())
-                .name(professor.getName())
-                .build()
-        ).toList();
+//        return professors.stream().map((professor) -> ProfessorResponse.builder()
+//                .id(professor.getId())
+//                .name(professor.getName())
+//                .build()
+//        ).toList();
+
+//        return professors.stream()
+//                .map(p -> new ProfessorResponse(p.getId(), p.getName()))
+//                .collect(Collectors.toList());
+
+        return professors.stream()
+                .map(p -> ProfessorResponse.response(p))
+                .collect(Collectors.toList());
     }
 
     public List<ProfessorResponse> findByName(String name) {
@@ -63,7 +72,7 @@ public class ProfessorService {
         }
 
         findProfessor.changeName(request.getName());
-        professorRepository.save(findProfessor);
+//        professorRepository.save(findProfessor);
     }
 
 
@@ -76,5 +85,10 @@ public class ProfessorService {
         }
 
         professorRepository.delete(findProfessor.getId());
+    }
+
+    public Long findById(Long professorId) {
+        return professorRepository.findById(professorId).getId();
+
     }
 }

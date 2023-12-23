@@ -57,7 +57,7 @@ public class StudentService {
         }
 
         findStudent.changeName(request.getName());
-        studentRepository.save(findStudent);
+//        studentRepository.save(findStudent);
     }
 
     @Transactional
