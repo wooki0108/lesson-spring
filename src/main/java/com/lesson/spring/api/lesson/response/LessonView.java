@@ -14,7 +14,7 @@ public class LessonView {
 
     private String name;
 
-    public static LessonView response(Lesson lesson) {
+    public static LessonView from(Lesson lesson) {
         return new LessonView(lesson.getName());
     }
 }

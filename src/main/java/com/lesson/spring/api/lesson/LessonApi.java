@@ -4,7 +4,6 @@ import com.lesson.spring.api.lesson.request.CreateLessonRequest;
 import com.lesson.spring.api.lesson.request.UpdateProfessorLessonRequest;
 import com.lesson.spring.api.lesson.response.LessonView;
 import com.lesson.spring.service.LessonService;
-import com.lesson.spring.service.ProfessorService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,14 +37,13 @@ public class LessonApi {
             @RequestBody UpdateProfessorLessonRequest request) {
 
         lessonService.updateLesson(lessonId, request);
-        return new LessonView();
+        return new LessonView(request.getName());
     }
 
     //3. 등록한 강의 삭제
     @DeleteMapping("/{lessonId}")
-    public LessonView deleteLesson(@PathVariable Long lessonId) {
+    public void deleteLesson(@PathVariable Long lessonId) {
         lessonService.deleteLesson(lessonId);
-        return new LessonView();
     }
 
     //4. 수업 전체 조회
