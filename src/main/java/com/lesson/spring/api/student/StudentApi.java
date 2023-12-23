@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/student")
+@RequestMapping("api/students")
 public class StudentApi {
 
     private final StudentService studentService;
 
     //1. 학생 등록
-    @PostMapping("/save")
+    @PostMapping
     public CreateStudentResponse save(@RequestBody CreateStudentRequest request) {
         studentService.save(request);
         return new CreateStudentResponse(request.getName());
