@@ -43,7 +43,7 @@ public class ProfessorService {
 //                .collect(Collectors.toList());
 
         return professors.stream()
-                .map(p -> ProfessorResponse.response(p))
+                .map(p -> ProfessorResponse.from(p))
                 .collect(Collectors.toList());
     }
 
@@ -54,13 +54,9 @@ public class ProfessorService {
         if (findProfessorByName.isEmpty()) {
             throw new NotFoundProfessorException();
         }
-
-        return findProfessorByName.stream().map(professor -> ProfessorResponse.builder()
-                .id(professor.getId())
-                .name(professor.getName())
-                .build()
+        return findProfessorByName.stream().map(
+                professor -> ProfessorResponse.from(professor)
         ).toList();
-
     }
 
     @Transactional

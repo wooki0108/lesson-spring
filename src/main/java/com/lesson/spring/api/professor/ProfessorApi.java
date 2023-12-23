@@ -39,7 +39,7 @@ public class ProfessorApi {
     }
 
     //3. 교수 이름으로 조회
-    @GetMapping("/find")
+    @GetMapping("/search")
     public List<ProfessorResponse> findByName(@RequestParam String name) {
         return professorService.findByName(name);
     }

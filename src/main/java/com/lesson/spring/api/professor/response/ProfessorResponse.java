@@ -15,7 +15,7 @@ public class ProfessorResponse {
     private Long id;
     private String name;
 
-    public static ProfessorResponse response(Professor professor) {
+    public static ProfessorResponse from(Professor professor) {
         return new ProfessorResponse(professor.getId(), professor.getName());
     }
 
