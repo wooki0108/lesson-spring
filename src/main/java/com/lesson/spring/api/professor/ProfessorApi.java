@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/professor")
+@RequestMapping("api/professors")
 public class ProfessorApi {
 
     private final ProfessorService professorService;
 
     //1. 교수 가입
-    @PostMapping("/save")
+    @PostMapping
     public CreateProfessorResponse save(@RequestBody CreateProfessorRequest request) {
         professorService.save(request);
         return new CreateProfessorResponse(request.getName());
