@@ -1,6 +1,5 @@
 package com.lesson.spring.api.student;
 
-import com.lesson.spring.api.professor.response.UpdateProfessorResponse;
 import com.lesson.spring.api.student.request.CreateStudentRequest;
 import com.lesson.spring.api.student.request.UpdateStudentRequest;
 import com.lesson.spring.api.student.response.CreateStudentResponse;

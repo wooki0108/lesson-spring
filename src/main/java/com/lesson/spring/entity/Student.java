@@ -30,6 +30,7 @@ public class Student {
     public void changeName(String name) {
         this.name = name;
     }
+
     @Builder
     public Student(Long id, String name, List<StudentLesson> studentLesson) {
         this.id = id;
