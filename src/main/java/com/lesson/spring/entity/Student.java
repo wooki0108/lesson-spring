@@ -32,8 +32,7 @@ public class Student {
     }
 
     @Builder
-    public Student(Long id, String name, List<StudentLesson> studentLesson) {
-        this.id = id;
+    public Student(String name, List<StudentLesson> studentLesson) {
         this.name = name;
         this.studentLesson = studentLesson;
     }

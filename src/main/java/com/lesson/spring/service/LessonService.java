@@ -1,13 +1,15 @@
 package com.lesson.spring.service;
 
+import com.lesson.spring.api.lesson.request.CreateLessonDetailRequest;
 import com.lesson.spring.api.lesson.request.CreateLessonRequest;
 import com.lesson.spring.api.lesson.request.UpdateProfessorLessonRequest;
 import com.lesson.spring.api.lesson.response.LessonView;
 import com.lesson.spring.entity.Lesson;
 import com.lesson.spring.entity.LessonDetail;
-import com.lesson.spring.entity.Week;
-import com.lesson.spring.repository.LessonDetailRepository;
+import com.lesson.spring.entity.Professor;
+import com.lesson.spring.repository.LessonProfessorRepository;
 import com.lesson.spring.repository.LessonRepository;
+import com.lesson.spring.repository.ProfessorRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,23 +20,29 @@ import org.springframework.transaction.annotation.Transactional;
 public class LessonService {
 
     private final LessonRepository lessonRepository;
-    private final LessonDetailRepository lessonDetailRepository;
+    private final ProfessorRepository professorRepository;
+    private final LessonProfessorRepository lessonProfessorRepository;
 
     @Transactional
-    public void save(CreateLessonRequest request) {
+    public void save(Long professorId, CreateLessonRequest request) {
+        Professor findProfessor = professorRepository.findById(professorId);
+        //TODO: 예외 발생시키기
+
+        // TODO : 주석 남기기(변환, 어렵)
         Lesson lesson = Lesson.builder()
                 .name(request.getName())
                 .build();
 
-        lessonRepository.save(lesson);
-
-        request.getLessonDetails().forEach(((lessonDetail) -> {
-            LessonDetail lessonDetails = LessonDetail.builder()
-                    .content(lessonDetail.getContent())
-                    .week(Week.FIRST)
+        for (CreateLessonDetailRequest detailRequest : request.getCreateLessonDetailRequests()) {
+            LessonDetail lessonDetail = LessonDetail.builder()
+                    .content(detailRequest.getContent())
+                    // week
                     .build();
-            lessonDetailRepository.save(lessonDetails);
-        }));
+            lesson.addLessonDetail(lessonDetail);
+        }
+
+        lessonRepository.save(lesson);
+        lessonProfessorRepository.save(lesson, findProfessor);
     }
 
     @Transactional

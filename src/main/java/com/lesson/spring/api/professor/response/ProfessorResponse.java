@@ -14,9 +14,14 @@ public class ProfessorResponse {
 
     private Long id;
     private String name;
-
+// professor dto
     public static ProfessorResponse from(Professor professor) {
+//        ProfessorResponse.builder()
         return new ProfessorResponse(professor.getId(), professor.getName());
     }
 
+//    public ProfessorResponse(Long id, String name) {
+//        this.id = id;
+//        this.name = name;
+//    }
 }

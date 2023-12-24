@@ -26,8 +26,8 @@ public class Professor {
 
     private String name;
 
-    @OneToMany(mappedBy = "professor")
-    private List<LessonProfessor> lessons = new ArrayList<>();
+//    @OneToMany(mappedBy = "professor")
+//    private List<LessonProfessor> lessons = new ArrayList<>();
 
     public void changeName(String name) {
         this.name = name;

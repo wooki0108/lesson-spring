@@ -22,6 +22,7 @@ public class StudentService {
     @Transactional
     public void save(CreateStudentRequest request) {
 
+        // builder 이름 만들어 줄 수 있음
         Student student = Student.builder()
                 .name(request.getName())
                 .build();
@@ -46,7 +47,7 @@ public class StudentService {
         List<Student> findStudents = studentRepository.findByName(name);
 
         if (findStudents.isEmpty()) {
-            throw new NotFoundStudentException();
+            throw new IllegalArgumentException("해당 학생 이름 없음!");
         }
 
         return findStudents.stream()

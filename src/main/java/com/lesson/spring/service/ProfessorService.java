@@ -38,6 +38,7 @@ public class ProfessorService {
 //                .build()
 //        ).toList();
 
+        // 생성자
 //        return professors.stream()
 //                .map(p -> new ProfessorResponse(p.getId(), p.getName()))
 //                .collect(Collectors.toList());

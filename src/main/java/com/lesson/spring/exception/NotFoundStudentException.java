@@ -1,5 +1,6 @@
 package com.lesson.spring.exception;
 
+// RuntimeException vs Exception, (checked Exception vs unchecked Exception)
 public class NotFoundStudentException extends RuntimeException {
 
     public NotFoundStudentException() {

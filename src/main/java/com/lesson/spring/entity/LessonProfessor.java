@@ -26,5 +26,8 @@ public class LessonProfessor {
     @JoinColumn(name = "professor_id")
     private Professor professor;
 
-
+    public LessonProfessor(Lesson lesson, Professor professor) {
+        this.lesson = lesson;
+        this.professor = professor;
+    }
 }

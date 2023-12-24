@@ -18,15 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/lessons")
+@RequestMapping("/api/lessons")
 public class LessonApi {
     private final LessonService lessonService;
 
     //1. 교수 강의 등록
-    @PostMapping
+    @PostMapping("/{professorId}")
     public LessonView saveLesson(
+            @PathVariable Long professorId,
             @RequestBody CreateLessonRequest request) {
-        lessonService.save(request);
+        lessonService.save(professorId,request);
         return new LessonView(request.getName());
     }
 
@@ -53,7 +54,7 @@ public class LessonApi {
     }
 
     //5. 수업 이름으로 검색
-    @GetMapping("/search")
+    @GetMapping("/search") //웬만하면 명사, 쿼리스트링 고려
     public List<LessonView> findByName(@RequestParam String name) {
         return lessonService.findByName(name);
     }

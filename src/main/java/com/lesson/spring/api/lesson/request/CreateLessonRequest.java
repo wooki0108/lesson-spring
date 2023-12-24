@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class CreateLessonRequest {
 
     private String name;
-    private List<CreateLessonDetailRequest> lessonDetails = new ArrayList<>();
+    private List<CreateLessonDetailRequest> createLessonDetailRequests;
 
 
 
