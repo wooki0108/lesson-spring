@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Builder
-public class LessonView {
+public class LessonResponse {
 
     private String name;
 
-    public static LessonView from(Lesson lesson) {
-        return new LessonView(lesson.getName());
+    public static LessonResponse from(Lesson lesson) {
+        return new LessonResponse(lesson.getName());
     }
 }

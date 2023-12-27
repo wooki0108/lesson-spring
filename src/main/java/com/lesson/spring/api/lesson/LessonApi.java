@@ -2,7 +2,7 @@ package com.lesson.spring.api.lesson;
 
 import com.lesson.spring.api.lesson.request.CreateLessonRequest;
 import com.lesson.spring.api.lesson.request.UpdateProfessorLessonRequest;
-import com.lesson.spring.api.lesson.response.LessonView;
+import com.lesson.spring.api.lesson.response.LessonResponse;
 import com.lesson.spring.service.LessonService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -20,25 +20,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/lessons")
 public class LessonApi {
+
     private final LessonService lessonService;
 
     //1. 교수 강의 등록
     @PostMapping("/{professorId}")
-    public LessonView saveLesson(
+    public LessonResponse saveLesson(
             @PathVariable Long professorId,
             @RequestBody CreateLessonRequest request) {
-        lessonService.save(professorId,request);
-        return new LessonView(request.getName());
+        lessonService.save(professorId, request);
+        return new LessonResponse(request.getName());
     }
 
     //2. 등록한 강의 수정
     @PutMapping("/{lessonId}")
-    public LessonView updateLesson(
+    public LessonResponse updateLesson(
             @PathVariable Long lessonId,
             @RequestBody UpdateProfessorLessonRequest request) {
 
         lessonService.updateLesson(lessonId, request);
-        return new LessonView(request.getName());
+        return new LessonResponse(request.getName());
     }
 
     //3. 등록한 강의 삭제
@@ -49,13 +50,13 @@ public class LessonApi {
 
     //4. 수업 전체 조회
     @GetMapping()
-    public List<LessonView> findAllLessons() {
+    public List<LessonResponse> findAllLessons() {
         return lessonService.findAll();
     }
 
     //5. 수업 이름으로 검색
     @GetMapping("/search") //웬만하면 명사, 쿼리스트링 고려
-    public List<LessonView> findByName(@RequestParam String name) {
+    public List<LessonResponse> findByName(@RequestParam String name) {
         return lessonService.findByName(name);
     }
 

@@ -3,7 +3,7 @@ package com.lesson.spring.service;
 import com.lesson.spring.api.lesson.request.CreateLessonDetailRequest;
 import com.lesson.spring.api.lesson.request.CreateLessonRequest;
 import com.lesson.spring.api.lesson.request.UpdateProfessorLessonRequest;
-import com.lesson.spring.api.lesson.response.LessonView;
+import com.lesson.spring.api.lesson.response.LessonResponse;
 import com.lesson.spring.entity.Lesson;
 import com.lesson.spring.entity.LessonDetail;
 import com.lesson.spring.entity.Professor;
@@ -63,19 +63,19 @@ public class LessonService {
         lessonRepository.deleteLesson(lesson.getId());
     }
 
-    public List<LessonView> findAll() {
+    public List<LessonResponse> findAll() {
         List<Lesson> lessons = lessonRepository.findAll();
 
         return lessons.stream()
-                .map(lesson -> LessonView.from(lesson))
+                .map(lesson -> LessonResponse.from(lesson))
                 .toList();
     }
 
-    public List<LessonView> findByName(String name) {
+    public List<LessonResponse> findByName(String name) {
         List<Lesson> lessons = lessonRepository.findByName(name);
 
         return lessons.stream().map(
-                lesson -> LessonView.from(lesson)
+                lesson -> LessonResponse.from(lesson)
         ).toList();
     }
 
