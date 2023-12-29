@@ -23,4 +23,8 @@ public class StudentLesson {
     @ManyToOne(fetch = FetchType.LAZY)
     private Lesson lesson;
 
+    public StudentLesson(Student student, Lesson lesson) {
+        this.student = student;
+        this.lesson = lesson;
+    }
 }

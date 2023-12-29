@@ -84,4 +84,8 @@ public class StudentService {
         studentRepository.delete(findStudent.getId());
 
     }
+
+    public void findById(Long studenId) {
+
+    }
 }
