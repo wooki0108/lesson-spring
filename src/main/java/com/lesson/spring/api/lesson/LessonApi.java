@@ -2,6 +2,7 @@ package com.lesson.spring.api.lesson;
 
 import com.lesson.spring.api.lesson.request.CreateLessonRequest;
 import com.lesson.spring.api.lesson.request.UpdateProfessorLessonRequest;
+import com.lesson.spring.api.lesson.response.LessonDetailResponse;
 import com.lesson.spring.api.lesson.response.LessonResponse;
 import com.lesson.spring.service.LessonService;
 import java.util.List;
@@ -55,12 +56,16 @@ public class LessonApi {
     }
 
     //5. 수업 이름으로 검색
-    @GetMapping("/search") //웬만하면 명사, 쿼리스트링 고려
+    @GetMapping("/lesson") //웬만하면 명사, 쿼리스트링 고려
     public List<LessonResponse> findByName(@RequestParam String name) {
         return lessonService.findByName(name);
     }
 
-    //6. 교수 이름으로 수업 검색
+    //6. 교수 이름으로 수업 검색 (과목 여러개 나오게)
+    @GetMapping("/professor")
+    public List<LessonDetailResponse> findLessonByProfessorName(@RequestParam String name) {
+        return lessonService.findLessonByProfessorName(name);
+    }
 
 
 }

@@ -3,10 +3,13 @@ package com.lesson.spring.service;
 import com.lesson.spring.api.lesson.request.CreateLessonDetailRequest;
 import com.lesson.spring.api.lesson.request.CreateLessonRequest;
 import com.lesson.spring.api.lesson.request.UpdateProfessorLessonRequest;
+import com.lesson.spring.api.lesson.response.LessonDetailResponse;
+import com.lesson.spring.api.lesson.response.LessonDetailResponse.LessonDetailDto;
 import com.lesson.spring.api.lesson.response.LessonResponse;
 import com.lesson.spring.entity.Lesson;
 import com.lesson.spring.entity.LessonDetail;
 import com.lesson.spring.entity.Professor;
+import com.lesson.spring.exception.NotFoundProfessorException;
 import com.lesson.spring.repository.LessonProfessorRepository;
 import com.lesson.spring.repository.LessonRepository;
 import com.lesson.spring.repository.ProfessorRepository;
@@ -27,6 +30,9 @@ public class LessonService {
     public void save(Long professorId, CreateLessonRequest request) {
         Professor findProfessor = professorRepository.findById(professorId);
         //TODO: 예외 발생시키기
+        if (findProfessor == null) {
+            throw new NotFoundProfessorException();
+        }
 
         // TODO : 주석 남기기(변환, 어렵)
         // 1. request 에서 받은 name 을 빌더 패턴을 이용해서 Lesson 엔티티 넣어줌
@@ -40,6 +46,7 @@ public class LessonService {
             //3. 1번과 같이 LessonDetail 에 content 를 넣어줌
             LessonDetail lessonDetail = LessonDetail.builder()
                     .content(detailRequest.getContent())
+                    .week(detailRequest.getWeek())
                     // week
                     .build();
             //4. addLessonDetail(연관관계 편의메서드)에 lessonDetail 설정
@@ -79,4 +86,25 @@ public class LessonService {
         ).toList();
     }
 
+    public List<LessonDetailResponse> findLessonByProfessorName(String name) {
+        //1. professorRepository 에서 이름 검색해서 다 가져오기
+        List<Professor> findProfessor = professorRepository.findByName(name);
+
+        //2. professorRepository 에서 이름 없으면 예외 발생
+        if (findProfessor == null) {
+            throw new NotFoundProfessorException();
+        }
+
+        //3. professorRepository 에서 찾아온 findProfessor Id로 다 가져오기
+        for (Professor professor : findProfessor) {
+            lessonProfessorRepository.findLessonByProfessor(professor.getId());
+        }
+
+
+
+        // 4. 찾아온 findProfessor Id를 lesson id랑 비교해서 일치하는 수업을 다 보여주기
+
+        return null;
+
+    }
 }
