@@ -4,7 +4,6 @@ import com.lesson.spring.api.lesson.request.CreateLessonDetailRequest;
 import com.lesson.spring.api.lesson.request.CreateLessonRequest;
 import com.lesson.spring.api.lesson.request.UpdateProfessorLessonRequest;
 import com.lesson.spring.api.lesson.response.LessonDetailResponse;
-import com.lesson.spring.api.lesson.response.LessonDetailResponse.LessonDetailDto;
 import com.lesson.spring.api.lesson.response.LessonResponse;
 import com.lesson.spring.entity.Lesson;
 import com.lesson.spring.entity.LessonDetail;
@@ -13,6 +12,7 @@ import com.lesson.spring.exception.NotFoundProfessorException;
 import com.lesson.spring.repository.LessonProfessorRepository;
 import com.lesson.spring.repository.LessonRepository;
 import com.lesson.spring.repository.ProfessorRepository;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -88,23 +88,27 @@ public class LessonService {
 
     public List<LessonDetailResponse> findLessonByProfessorName(String name) {
         //1. professorRepository 에서 이름 검색해서 다 가져오기
-        List<Professor> findProfessor = professorRepository.findByName(name);
+        List<Professor> findProfessors = professorRepository.findByName(name);
 
-        //2. professorRepository 에서 이름 없으면 예외 발생
-        if (findProfessor == null) {
+        //2. professorRepository 에서 이름 없으면 예외 발생 null, isEmpty 차이
+        if (findProfessors == null || findProfessors.isEmpty()) {
             throw new NotFoundProfessorException();
         }
 
-        //3. professorRepository 에서 찾아온 findProfessor Id로 다 가져오기
-        for (Professor professor : findProfessor) {
-            lessonProfessorRepository.findLessonByProfessor(professor.getId());
+        List<Lesson> allLessonsByProfessors = lessonProfessorRepository.findAllLessonsByProfessors(
+                findProfessors);
+
+        List<LessonDetailResponse> lessonDetailResponses = new ArrayList<>();
+
+        for (Lesson lessonByProfessor : allLessonsByProfessors) {
+            LessonDetailResponse lessonDetailResponse = LessonDetailResponse.builder()
+                    .name(lessonByProfessor.getName())
+                    .build();
+
+            lessonDetailResponses.add(lessonDetailResponse);
         }
 
-
-
-        // 4. 찾아온 findProfessor Id를 lesson id랑 비교해서 일치하는 수업을 다 보여주기
-
-        return null;
+        return lessonDetailResponses;
 
     }
 }
