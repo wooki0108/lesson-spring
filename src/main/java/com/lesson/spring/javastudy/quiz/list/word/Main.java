@@ -1,4 +1,4 @@
-package com.lesson.spring.javastudy.quiz.list;
+package com.lesson.spring.javastudy.quiz.list.word;
 
 public class Main {
 
