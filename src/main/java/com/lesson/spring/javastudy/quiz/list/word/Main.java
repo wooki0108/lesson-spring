@@ -1,14 +1,27 @@
 package com.lesson.spring.javastudy.quiz.list.word;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Word word = new Word();
+//        Word word = new Word();
 
-        for (int i = 0; i < word.wordLists.length; i++) {
-            System.out.println(word.wordLists[i]);
+        String[] wordLists = {
+                "banana", "apple", "korea", "newjeans", "oak", "spring", "luxury"
+        };
+
+        for (int i = 0; i < wordLists.length; i++) {
+            Arrays.sort(wordLists,
+                    Comparator.comparing(String::length).reversed());
         }
+
+        for (String wordList : wordLists) {
+            System.out.println(wordList);
+        }
+
 
     }
 
