@@ -20,8 +20,7 @@ public class Main {
         carList.add(new Audi("Q5", 700, YearMonth.of(2023, 12)));
         carList.add(new Tesla("모델Y", 600, YearMonth.of(2023, 10)));
 
-//        Collections.sort(carList, Comparator.comparing(car -> car.getPrice()));
-        Collections.sort(carList, Comparator.comparing(Car::getPrice).thenComparing(Car::getDeliverDate));
+        carList.sort(Comparator.comparing(Car::getPrice).thenComparing(Car::getDeliverDate));
 
 
         // 결과 출력

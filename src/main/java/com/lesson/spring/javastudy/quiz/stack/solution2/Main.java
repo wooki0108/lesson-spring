@@ -20,6 +20,7 @@ public class Main {
         int count = 1;
         String pop = strings.pop();
         System.out.println(pop);
+        // pop -> 비교 -> reverse
         System.out.println(strings);
 
 

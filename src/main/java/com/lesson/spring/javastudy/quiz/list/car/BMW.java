@@ -5,9 +5,9 @@ import java.time.YearMonth;
 
 public class BMW implements Car {
 
-    private String name;
-    private Integer price;
-    private YearMonth yearMonth;
+    private final String name;
+    private final Integer price;
+    private final YearMonth yearMonth;
 
     public BMW(String name, Integer price, YearMonth yearMonth) {
         this.name = name;

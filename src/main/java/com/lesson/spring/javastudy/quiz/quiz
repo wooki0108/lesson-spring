@@ -36,6 +36,14 @@ List[Hotel(name = “신라”, price = 10000), Hotel(name = “신라”, price
 List[Hotel(name = “롯데”, price = 20000), Hotel(name = “롯데”, price = 30000)]
 
 Q2. name 호텔이름인경우 합산하여 1개의 객체를 만들어주시면 됩니다. 즉 이름별로 하나의 객체만 생성됨
+- Hotel(name = “신라”, price = 10000)
+- Hotel(name = “롯데”, price = 20000)
+- Hotel(name = “신라”, price = 25000)
+- Hotel(name = “롯데”, price = 30000)
+- Hotel(name = “신라”, price = 25000)
+
+List[Hotel(name = “신라”, price = 60000), Hotel(name = “롯데”, price = 50000)]
+
 
 - Set
 Q1. 중복 제거
@@ -64,3 +72,19 @@ Q1. 오마카세 음식점이 있고 아침 점심 저녁 3번의 식사시간�
 
 - Stack
 Q1. 문자열을 압축해서 출력하세요 예) BBAAGGCNNNNN ⇒ B2A2G2CN5
+
+1. Abstract Class Weapon 가 있고 attack 이라는 추상메서드를 가진다.
+
+ 이를 구현한 Class Sward , Cane, Bow 가 있다 . 아래 내용을 출력해보세요
+
+=== 공격 시작 ===
+5번의 공격
+=== 공격 종료 ===
+
+Sward : 검을 휘두른다
+Cane : 마법을 사용한다
+Bow : 화살을 쏜다.
+
++ 출력은 추상클래스의 메서드로 진행 공격 개수는 추상메서드의 파라미터로 받음
+
+자바 책 - map
