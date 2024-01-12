@@ -6,10 +6,10 @@ public class Main {
         Weapon bow = new Bow(5);
         bow.attack();
 
-        Weapon cane= new Cane(5);
+        Weapon cane= new Cane(2);
         cane.attack();
 
-        Weapon sward = new Sward(5);
+        Weapon sward = new Sward(3);
         sward.attack();
 
 
