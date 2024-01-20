@@ -30,21 +30,25 @@ public class Main {
 
         Map<String, List<Hotel>> hotelMap = new HashMap<>();
 
-        for (Hotel hotel : hotels) {
-            String hotelName = hotel.getName();
-            List<Hotel> hotelList = hotelMap.computeIfAbsent(hotelName, k -> new ArrayList<>());
-            hotelList.add(hotel);
-        }
-
 //        for (Hotel hotel : hotels) {
 //            String hotelName = hotel.getName();
-//            List<Hotel> hotelList = hotelMap.get(hotelName);
-//            if (hotelList == null) {
-//                hotelList = new ArrayList<>();
-//                hotelMap.put(hotelName, hotelList);
-//            }
+//            List<Hotel> hotelList = hotelMap.computeIfAbsent(hotelName, k -> new ArrayList<>());
 //            hotelList.add(hotel);
 //        }
+
+        for (Hotel hotel : hotels) {
+
+            String hotelName = hotel.getName();
+
+            List<Hotel> hotelList = hotelMap.get(hotelName);
+
+            if (hotelList == null) {
+                hotelList = new ArrayList<>();
+                hotelMap.put(hotelName, hotelList);
+            }
+
+            hotelList.add(hotel);
+        }
 
         for (List<Hotel> hotelsByName : hotelMap.values()) {
             System.out.println(hotelsByName);

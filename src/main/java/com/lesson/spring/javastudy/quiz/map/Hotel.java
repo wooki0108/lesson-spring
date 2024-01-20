@@ -5,7 +5,7 @@ import lombok.ToString;
 @ToString
 public class Hotel {
 
-    private String name;
+    private final String name;
     private int price;
 
     public Hotel(String name, int price) {
@@ -19,5 +19,14 @@ public class Hotel {
 
     public int getPrice() {
         return price;
+    }
+
+    public Hotel addPrice(int price) {
+        this.price = price;
+        return this;
+    }
+    
+    public void merge(Hotel hotel) {
+        this.price += hotel.getPrice();
     }
 }

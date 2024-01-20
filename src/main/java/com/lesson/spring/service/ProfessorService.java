@@ -44,7 +44,7 @@ public class ProfessorService {
 //                .collect(Collectors.toList());
 
         return professors.stream()
-                .map(p -> ProfessorResponse.from(p))
+                .map(ProfessorResponse::from)
                 .collect(Collectors.toList());
     }
 

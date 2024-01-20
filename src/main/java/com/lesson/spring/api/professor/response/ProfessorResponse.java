@@ -1,5 +1,6 @@
 package com.lesson.spring.api.professor.response;
 
+import com.lesson.spring.entity.Lesson;
 import com.lesson.spring.entity.Professor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
