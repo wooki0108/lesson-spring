@@ -1,0 +1,28 @@
+package com.lesson.spring.javastudy.javalotto;
+
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+// 로또 번호
+// TODO : 자동, 수동 만들기, 테스트 코드 작성
+@ToString
+@EqualsAndHashCode
+public class LottoNumber {
+    // 제약 1 ->  1 ~ 45
+    // 제약 2 ->  6개
+    // 제약 3 ->  중복 x
+    private final int number;
+
+    public LottoNumber(int number) {
+        validate(number);
+        this.number = number;
+    }
+
+    private void validate(int number) {
+        if (number > 45 || number < 1) {
+            throw new IllegalArgumentException("번호는 1 ~ 45 사이로 선택해주세요");
+        }
+    }
+
+
+}
