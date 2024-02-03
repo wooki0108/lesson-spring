@@ -3,7 +3,6 @@ package com.lesson.spring.javastudy.javalotto.game;
 import com.lesson.spring.javastudy.javalotto.LottoNumber;
 import com.lesson.spring.javastudy.javalotto.LottoNumbers;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -28,7 +27,7 @@ public class AutoLottoNumbersGenerator implements LottoNumbersGenerator {
             lottoNumbers.add(lottoNumber);
         }
 
-        // 정렬 -> 갹체와 객체 비교
+        // 정렬 -> 객체와 객체 비교
 //        lottoNumbers.sort(LottoNumber::compareTo);
 
         Collections.sort(lottoNumbers, new Comparator<LottoNumber>() {

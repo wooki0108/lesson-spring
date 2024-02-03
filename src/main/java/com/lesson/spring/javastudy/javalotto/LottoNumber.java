@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 // 로또 번호
-// TODO : 자동, 수동 만들기, 테스트 코드 작성
 @ToString
 @EqualsAndHashCode
 public class LottoNumber {

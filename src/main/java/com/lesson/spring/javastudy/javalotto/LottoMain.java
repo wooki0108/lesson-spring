@@ -1,7 +1,5 @@
 package com.lesson.spring.javastudy.javalotto;
 
-import com.lesson.spring.javastudy.javalotto.game.LottoNumbersGenerator;
-import com.lesson.spring.javastudy.javalotto.game.ManualLottoNumbersGenerator;
 import java.util.List;
 
 public class LottoMain {
@@ -23,11 +21,9 @@ public class LottoMain {
 
         boolean isAuto = true;
 
-        LottoGame lottoGame = new LottoGame(null, isAuto);
+        LottoGame lottoGame = new LottoGame(null, true);
 
-//        List<lottoGame> lottoGame = List<LottoGame> lottoGame
         Lotto lotto = new Lotto(List.of(lottoGame));
-
 
         System.out.println("로또가게에 제출");
         LottoShop lottoShop = new LottoShop(lotto);

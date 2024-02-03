@@ -15,7 +15,6 @@ public class Lotto {
         this.lottoGames = lottoGame;
     }
 
-
     public List<LottoGame> getLottoGames() {
         return lottoGames;
     }
