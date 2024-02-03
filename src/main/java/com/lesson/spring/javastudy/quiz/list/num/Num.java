@@ -20,4 +20,6 @@ public class Num {
     public Integer getPriority() {
         return priority;
     }
+
+    // compare
 }

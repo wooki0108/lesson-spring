@@ -1,12 +1,14 @@
 package com.lesson.spring.javastudy.javalotto;
 
+import com.lesson.spring.javastudy.javalotto.game.LottoNumbersGenerator;
+import com.lesson.spring.javastudy.javalotto.game.ManualLottoNumbersGenerator;
 import java.util.List;
 
 public class LottoMain {
 
     public static void main(String[] args) {
         System.out.println("로또 용지를 작성해주세요");
-        //TODO: 같은번호 확인
+
         LottoNumber lottoNumber1 = new LottoNumber(1);
         LottoNumber lottoNumber2 = new LottoNumber(2);
         LottoNumber lottoNumber3 = new LottoNumber(3);
@@ -19,9 +21,9 @@ public class LottoMain {
 
         LottoNumbers lottoNumbers = new LottoNumbers(game);
 
-        boolean isAuto = false;
+        boolean isAuto = true;
 
-        LottoGame lottoGame = new LottoGame(lottoNumbers, isAuto);
+        LottoGame lottoGame = new LottoGame(null, isAuto);
 
 //        List<lottoGame> lottoGame = List<LottoGame> lottoGame
         Lotto lotto = new Lotto(List.of(lottoGame));
@@ -29,9 +31,7 @@ public class LottoMain {
 
         System.out.println("로또가게에 제출");
         LottoShop lottoShop = new LottoShop(lotto);
-
         Lotto lottoPaper = lottoShop.getMakeLotto();
-
         System.out.println(lottoPaper);
 
 

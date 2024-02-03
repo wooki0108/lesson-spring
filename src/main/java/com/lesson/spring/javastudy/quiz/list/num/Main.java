@@ -19,7 +19,7 @@ public class Main {
         numList.add(new Num("1", 1));
         numList.add(new Num("1", 3));
 
-        numList.sort(new Comparator<Num>() {
+        numList.sort(new Comparator<>() {
             @Override
             public int compare(Num o1, Num o2) {
                 int i = o1.getName().compareTo(o2.getName());

@@ -11,7 +11,6 @@ public class Lotto {
 
     private final List<LottoGame> lottoGames;
 
-
     public Lotto(List<LottoGame> lottoGame) {
         this.lottoGames = lottoGame;
     }

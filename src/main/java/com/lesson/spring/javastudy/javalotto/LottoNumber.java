@@ -24,5 +24,13 @@ public class LottoNumber {
         }
     }
 
+    // 값 비교
+    public int compareTo(LottoNumber other) {
+        return Integer.compare(this.number, other.number);
+    }
 
+    //getter
+    public int getNumber() {
+        return number;
+    }
 }

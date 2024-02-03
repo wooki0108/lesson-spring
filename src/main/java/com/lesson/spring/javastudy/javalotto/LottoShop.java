@@ -11,7 +11,6 @@ public class LottoShop {
         this.lotto = lotto;
     }
 
-
     public Lotto getMakeLotto() {
         for (LottoGame lottoGame : lotto.getLottoGames()) {
 
@@ -20,8 +19,6 @@ public class LottoShop {
                 LottoNumbers lottoNumbers = autoLottoNumbersGenerator.generateLottoNumbers();
                 lottoGame.setLottoNumbers(lottoNumbers);
             }
-
-
         }
 
         return lotto;

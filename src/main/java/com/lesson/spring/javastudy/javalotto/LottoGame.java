@@ -1,5 +1,6 @@
 package com.lesson.spring.javastudy.javalotto;
 
+import com.lesson.spring.javastudy.javalotto.game.LottoNumbersGenerator;
 import lombok.ToString;
 
 // 1 game
