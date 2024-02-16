@@ -20,6 +20,10 @@ public class LottoNumbers {
         validateDuplicate(lottoNumbers);
     }
 
+    public List<LottoNumber> getLottoNumbers() {
+        return lottoNumbers;
+    }
+
     private void validateSize(List<LottoNumber> lottoNumbers) {
         if (lottoNumbers.size() != 6) {
             throw new IllegalArgumentException("번호는 6개만 선택 가능합니다.");

@@ -18,4 +18,6 @@ public class Lotto {
     public List<LottoGame> getLottoGames() {
         return lottoGames;
     }
+
+
 }

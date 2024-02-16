@@ -2,7 +2,9 @@ package com.lesson.spring.javastudy.javalotto;
 
 import com.lesson.spring.javastudy.javalotto.game.AutoLottoNumbersGenerator;
 import com.lesson.spring.javastudy.javalotto.game.LottoNumbersGenerator;
+import lombok.Getter;
 
+@Getter
 public class LottoShop {
 
     private final Lotto lotto;
