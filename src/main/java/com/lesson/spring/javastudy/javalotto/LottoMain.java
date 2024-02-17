@@ -1,6 +1,6 @@
 package com.lesson.spring.javastudy.javalotto;
 
-import com.lesson.spring.javastudy.javalotto.game.LottoWinningNumber;
+import com.lesson.spring.javastudy.javalotto.game.LottoWinningNumberGenerator;
 import java.util.List;
 
 public class LottoMain {
@@ -30,43 +30,16 @@ public class LottoMain {
         Lotto lottoPaper = lottoShop.getMakeLotto();
         System.out.println(lottoPaper);
 
-        System.out.println("--------------------");
-        System.out.println("당첨번호보기");
-        LottoWinningNumber lottoWinningNumber = new LottoWinningNumber();
-        LottoNumbers winningNumbers = lottoWinningNumber.generateLottoNumbers();
-        System.out.println(winningNumbers);
+        System.out.println("------------------------------");
+        LottoResult lottoResult = new LottoResult(lotto);
 
-        System.out.println("-------------------");
-        System.out.println("구매한 로또랑 당첨번호 비교하기");
 
-        // 1. 자동으로 만들어낸 번호 6개가 필요
-        // 2. 당첨기에서 만들어내 번호 6개 필요
-        // 3. 두 개의 번호들을 비교하기
 
-        // Q. 구매한 로또가 여러장이라면?
-        List<LottoNumber> submittedNumbers = lottoPaper.getLottoGames().get(0).getLottoNumbers()
-                .getLottoNumbers();
 
-        List<LottoNumber> winningNumbersList = winningNumbers.getLottoNumbers();
 
-        int matchingCount = countMatchingNumbers(submittedNumbers, winningNumbersList);
-        System.out.println("일치하는 번호 개수: " + matchingCount);
+
+
+
     }
-
-    //  Q. 메서드를 위해서 클래스를 만드는지?
-    public static int countMatchingNumbers(List<LottoNumber> submittedNumbers,
-            List<LottoNumber> winningNumbers) {
-        int count = 0;
-        for (LottoNumber submittedNumber : submittedNumbers) {
-            for (LottoNumber winningNumber : winningNumbers) {
-                if (submittedNumber.getNumber() == winningNumber.getNumber()) {
-                    count++;
-                    break;
-                }
-            }
-        }
-        return count;
-    }
-
 
 }
