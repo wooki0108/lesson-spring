@@ -2,6 +2,7 @@ package com.lesson.spring.javastudy.javalotto;
 
 import java.util.List;
 import lombok.Getter;
+
 // TODO : 1. rank enum(카운트, 보너스카운트 받아서 등수까지 반환) 2. test code 작성
 @Getter
 public class WinningNumbers {
@@ -9,6 +10,7 @@ public class WinningNumbers {
     // bonus, lotto numbers 받아오쟈
     private final LottoNumbers winningLottoNumbers;
     private final BonusNumber bonusNumber;
+
     public WinningNumbers(LottoNumbers winningLottoNumbers, BonusNumber bonusNumber) {
         this.winningLottoNumbers = winningLottoNumbers;
         this.bonusNumber = bonusNumber;
@@ -16,7 +18,7 @@ public class WinningNumbers {
 
     // lottoNumbers - 구매한 로또 랜덤 번호
     // matchLottoNumber -> lottoNumbers, winningLottoNumbers 비교해서 등수 확인 해주는 메서드
-    public void matchLottoNumber(LottoNumbers lottoNumbers) {
+    public Rank matchLottoNumber(LottoNumbers lottoNumbers) {
 
         List<LottoNumber> winningLottoNumbers = this.winningLottoNumbers.getLottoNumbers();
 
@@ -35,8 +37,23 @@ public class WinningNumbers {
             bonusCount++;
         }
 
-//        return count;
+        return calculateRank(count, bonusCount);
+    }
 
+    private Rank calculateRank(int count, int bonusCount) {
+        if (count == 6) {
+            return Rank.FIRST;
+        } else if (count == 5 && bonusCount == 1) {
+            return Rank.SECOND;
+        } else if (count == 5) {
+            return Rank.THIRD;
+        } else if (count == 4) {
+            return Rank.FOURTH;
+        } else if (count == 3) {
+            return Rank.FIFTH;
+        } else {
+            return Rank.NOTHING;
+        }
     }
 
 

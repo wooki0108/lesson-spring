@@ -12,7 +12,7 @@ import java.util.Set;
 // 로또 당첨 번호 생성
 public class LottoWinningNumberGenerator {
 
-    private static final int COUNT = 7;
+    private static final int COUNT = 6;
     private static final int RANGE_START_NUMBER = 1;
     private static final int RANGE_END_NUMBER = 45;
 

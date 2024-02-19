@@ -6,7 +6,7 @@ import java.util.List;
 public class LottoResult {
 
     // lotto
-    private Lotto lotto;
+    private final Lotto lotto;
     public LottoResult(Lotto lotto) {
         this.lotto = lotto;
     }
@@ -15,8 +15,8 @@ public class LottoResult {
         List<LottoGame> lottoGames = lotto.getLottoGames();
         LottoWinningNumberGenerator lottoWinningNumberGenerator = new LottoWinningNumberGenerator();
         WinningNumbers winningNumbers = lottoWinningNumberGenerator.generateLottoNumbers();
+        System.out.println("당첨 번호 " + winningNumbers.getWinningLottoNumbers() + "보너스 번호 " + winningNumbers.getBonusNumber());
         LottoCheckUp.matchingNumberCalculate(lottoGames, winningNumbers);
-
     }
 
 

@@ -1,6 +1,5 @@
 package com.lesson.spring.javastudy.javalotto;
 
-import com.lesson.spring.javastudy.javalotto.game.LottoWinningNumberGenerator;
 import java.util.List;
 
 public class LottoMain {
@@ -31,15 +30,8 @@ public class LottoMain {
         System.out.println(lottoPaper);
 
         System.out.println("------------------------------");
-        LottoResult lottoResult = new LottoResult(lotto);
-
-
-
-
-
-
-
-
+        LottoResult lottoResult = new LottoResult(lottoPaper);
+        lottoResult.resultGames();
     }
 
 }

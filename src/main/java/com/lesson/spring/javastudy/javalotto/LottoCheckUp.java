@@ -9,12 +9,9 @@ public class LottoCheckUp {
 
         for (LottoGame lottoGame : lottoGames) {
             LottoNumbers lottoNumbers = lottoGame.getLottoNumbers();
-
-
-
-
+            Rank rank = winningNumbers.matchLottoNumber(lottoNumbers);
+            System.out.println(rank.getDescription());
         }
-
     }
 
 
