@@ -12,7 +12,7 @@ import java.util.Set;
 // 로또 당첨 번호 생성
 public class LottoWinningNumberGenerator {
 
-    private static final int COUNT = 6;
+    private static final int COUNT = 7;
     private static final int RANGE_START_NUMBER = 1;
     private static final int RANGE_END_NUMBER = 45;
 
@@ -27,10 +27,12 @@ public class LottoWinningNumberGenerator {
         BonusNumber bonusNumber = null;
         while (iterator.hasNext()) {
 
-            int randomNumber = iterator.next(); //7
+            int randomNumber = iterator.next(); //1
 
             if (!iterator.hasNext()) {
                 bonusNumber = new BonusNumber(randomNumber);
+                break;
+                // return : 메서드가 끝나는 지점 break : 해당하는 반복문이 끝남
             }
 
             LottoNumber lottoNumber = new LottoNumber(randomNumber);

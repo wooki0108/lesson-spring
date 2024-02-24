@@ -26,4 +26,20 @@ public enum Rank {
         return description;
     }
 
+    public static Rank calculateRank(int count, int bonusCount) {
+        if (count == 6) {
+            return Rank.FIRST;
+        } else if (count == 5 && bonusCount == 1) {
+            return Rank.SECOND;
+        } else if (count == 5) {
+            return Rank.THIRD;
+        } else if (count == 4) {
+            return Rank.FOURTH;
+        } else if (count == 3) {
+            return Rank.FIFTH;
+        } else {
+            return Rank.NOTHING;
+        }
+    }
+
 }
