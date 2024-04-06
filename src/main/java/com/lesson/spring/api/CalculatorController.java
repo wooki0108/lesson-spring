@@ -17,4 +17,9 @@ public class CalculatorController {
         return rentalCarService.calculatePrice(carId, days);
     }
 
+    @GetMapping("/api/vi/rental-car/{carId}/discount-price")
+    public long discountFeeApi(@PathVariable String carId, int days) {
+        return rentalCarService.calculateDiscountPrice(carId, days);
+    }
+
 }

@@ -17,6 +17,10 @@ public class RentalCar {
         return price * days;
     }
 
+    public long calculateDiscountPrice(int days) {
+        return 0;
+    }
+
     @EqualsAndHashCode
     public static class Id {
         private final String id;
