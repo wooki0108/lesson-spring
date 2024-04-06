@@ -12,7 +12,7 @@ public class DiscountRepository {
 
 
     public Discount findDiscountCar(Id carId) {
-        RentalCar.Id rentalCarId = new RentalCar.Id("aa123");
+        RentalCar.Id rentalCarId = new RentalCar.Id("aa12");
 
         List<Pair<Integer, Double>> pairs = List.of(
                 new Pair(5, 5),

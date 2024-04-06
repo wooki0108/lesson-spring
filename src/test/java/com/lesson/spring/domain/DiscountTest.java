@@ -14,7 +14,7 @@ class DiscountTest {
     @DisplayName("할인가격을 구한다.")
     @Test
     void test(){
-        RentalCar.Id rentalCarId = new RentalCar.Id("aa123");
+        RentalCar.Id rentalCarId = new RentalCar.Id("aa12");
 
         List<Pair<Integer, Double>> pairs = List.of(
                 new Pair(5, 5),
