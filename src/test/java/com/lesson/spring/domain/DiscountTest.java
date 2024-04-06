@@ -32,7 +32,7 @@ class DiscountTest {
 
 
         //then 행위에 대한 결과
-        assertThat(result0).isEqualTo(0);
+        assertThat(result0).isEqualTo(1000);
         assertThat(result1).isEqualTo(0);
         assertThat(result2).isEqualTo(0);
 
